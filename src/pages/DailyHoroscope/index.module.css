@@ -1,0 +1,260 @@
+/* Daily Horoscope Page */
+.dailyHoroscopePage {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding-top: 4rem; /* Navbar için boşluk */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #ac94ac 0%, #614564 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../assets/stars-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  color: #614564;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #ac94ac;
+  border-top: 4px solid #614564;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.errorContainer {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.errorMessage {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+/* Main Content */
+.mainContent {
+  padding: 4rem 0;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .overviewGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.overviewCard {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overviewCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #614564;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  font-size: 1.75rem;
+}
+
+.cardContent {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Featured Sign */
+.featuredSign {
+  margin-top: 1rem;
+}
+
+.signContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.zodiacSymbol {
+  font-size: 2.5rem;
+  color: #ce467e;
+}
+
+.signName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #614564;
+}
+
+/* Register Prompt */
+.registerPrompt {
+  background: linear-gradient(45deg, #614564, #ac94ac);
+  color: white;
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.registerPrompt h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.registerPrompt p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: white; /* Beyaz renk ekledim */
+  opacity: 0.95; /* Şeffaflığı biraz düşürdüm */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registerButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginButton,
+.registerButton {
+  padding: 0.875rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-align: center;
+  display: inline-block;
+}
+
+.loginButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid white;
+}
+
+.loginButton:hover {
+  background: white;
+  color: #614564;
+}
+
+.registerButton {
+  background: #ce467e;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.registerButton:hover {
+  background: #e8cfdf;
+  color: #5c3647;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(206, 70, 126, 0.3);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .hero {
+    padding: 6rem 0;
+  }
+  
+  .title {
+    font-size: 3.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainContent {
+    padding: 6rem 0;
+  }
+  
+  .registerPrompt {
+    padding: 4rem 3rem;
+  }
+}

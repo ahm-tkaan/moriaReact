@@ -1,0 +1,444 @@
+/* Home Page */
+.homePage {
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #ac94ac 0%, #614564 100%);
+  color: white;
+  padding: 8rem 0 6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../assets/stars-background.png);
+  background-repeat: no-repeat;
+  background-size: cover; /* Görseli tam kaşasın */
+  background-position: center;
+  opacity: 0.4; /* Şeffaflık ayarla */
+  z-index: 1;
+}
+
+/* Yıldızlar için hareket animasyonu */
+@keyframes starsAnimation {
+  from {
+    transform: translateX(0) translateY(0);
+  }
+  to {
+    transform: translateX(-400px) translateY(-400px);
+  }
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Yıldızların üzerinde görünsün */
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: white; /* Beyaz yap */
+}
+
+.heroText {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: white; /* Beyaz renk ekledim */
+  opacity: 0.95; /* Şeffaflığı biraz düşürdüm */
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background: #ce467e;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1.125rem;
+}
+
+.primaryButton:hover {
+  background: #e8cfdf;
+  color: #5c3647;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: white;
+  padding: 1rem 2rem;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1.125rem;
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Sections */
+.features,
+.howItWorks,
+.testimonials,
+.pricing {
+  padding: 6rem 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #614564;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+/* Features Grid */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.featureCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  color: #614564;
+  margin-bottom: 0.5rem;
+}
+
+.featureText {
+  color: #6b7280;
+}
+
+/* How It Works */
+.howItWorks {
+  background: linear-gradient(135deg, #ac94ac 0%, #614564 100%);
+  color: #614564;
+  position: relative;
+  overflow: hidden;
+}
+
+.howItWorks::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../assets/stars-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.howItWorks .container {
+  position: relative;
+  z-index: 2;
+}
+
+.howItWorks .sectionTitle {
+  color: white;
+}
+
+.stepsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  text-align: center;
+  max-width: 200px;
+}
+
+.stepNumber {
+  width: 60px;
+  height: 60px;
+  background: #ce467e;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.stepText {
+  color: #fff;
+}
+
+.stepArrow {
+  font-size: 2rem;
+  color: white;
+  display: none;
+}
+
+/* Testimonials */
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonialCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  color: #fbbf24;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.testimonialText {
+  font-style: italic;
+  color: #374151;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.testimonialAuthor {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Pricing */
+.pricing {
+  background: linear-gradient(135deg, #ac94ac 0%, #614564 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../assets/stars-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.pricing .container {
+  position: relative;
+  z-index: 2;
+}
+
+.pricing .sectionTitle {
+  color: white;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pricingCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.pricingCard.featured {
+  border: 3px solid #ce467e;
+  transform: scale(1.05);
+}
+
+.popularBadge {
+  background: #ce467e;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+}
+
+.pricingTitle {
+  font-size: 1.875rem;
+  color: #614564;
+  margin-bottom: 1rem;
+}
+
+.pricingPrice {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ce467e;
+  margin-bottom: 2rem;
+}
+
+.pricingPrice span {
+  font-size: 1.25rem;
+  color: #6b7280;
+}
+
+.pricingFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.pricingFeatures li {
+  padding: 0.5rem 0;
+  color: #374151;
+}
+
+.pricingButton {
+  background: #ce467e;
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.pricingButton:hover {
+  background: #e8cfdf;
+  color: #5c3647;
+  transform: translateY(-2px);
+}
+
+/* CTA Section */
+.cta {
+  background: #614564;
+  color: white;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.ctaText {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.ctaButton {
+  background: #ce467e;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.125rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #e8cfdf;
+  color: #5c3647;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 4rem;
+  }
+  
+  .stepArrow {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 10rem 0 8rem;
+  }
+  
+  .features,
+  .howItWorks,
+  .testimonials,
+  .pricing {
+    padding: 8rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 3rem;
+  }
+}
