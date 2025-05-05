@@ -21,10 +21,10 @@ const Footer = () => {
               </div>
               {/* Social Media */}
               <div className={styles.socialMedia}>
-                <a href="#" className={styles.socialLink} aria-label="Facebook">📘</a>
-                <a href="#" className={styles.socialLink} aria-label="Twitter">🐦</a>
-                <a href="#" className={styles.socialLink} aria-label="Instagram">📸</a>
-                <a href="#" className={styles.socialLink} aria-label="LinkedIn">💼</a>
+                <button className={styles.socialLink} aria-label="Facebook">📘</button>
+                <button className={styles.socialLink} aria-label="Twitter">🐦</button>
+                <button className={styles.socialLink} aria-label="Instagram">📸</button>
+                <button className={styles.socialLink} aria-label="LinkedIn">💼</button>
               </div>
             </div>
 

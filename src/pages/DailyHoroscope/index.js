@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './index.module.css';
 
@@ -31,14 +31,17 @@ const DailyHoroscope = () => {
     'Pisces': 'Balık'
   };
 
+  // API base URL - Netlify development için
+  const API_BASE_URL = process.env.REACT_APP_API_URL || '/.netlify/functions/api';
+
   // Günün tarihini YYYY-MM-DD formatında al
-  const getTodayDate = () => {
+  const getTodayDate = useCallback(() => {
     const today = new Date();
     return today.toISOString().split('T')[0];
-  };
+  }, []);
 
   // LocalStorage'dan günün verisini al
-  const getTodayHoroscopeData = () => {
+  const getTodayHoroscopeData = useCallback(() => {
     const todayDate = getTodayDate();
     const storedData = localStorage.getItem('dailyHoroscope');
     
@@ -49,22 +52,22 @@ const DailyHoroscope = () => {
       }
     }
     return null;
-  };
+  }, [getTodayDate]);
 
   // Veriyi localStorage'a kaydet
-  const saveTodayHoroscopeData = (data) => {
+  const saveTodayHoroscopeData = useCallback((data) => {
     const todayDate = getTodayDate();
     const dataToStore = {
       date: todayDate,
       ...data
     };
     localStorage.setItem('dailyHoroscope', JSON.stringify(dataToStore));
-  };
+  }, [getTodayDate]);
 
   // Çeviri fonksiyonu
   const translateText = async (text) => {
     try {
-      const response = await fetch('http://localhost:3001/api/translate', {
+      const response = await fetch(`${API_BASE_URL}/api/translate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -103,7 +106,7 @@ const DailyHoroscope = () => {
         }
 
         // Cache yoksa, API'den veriyi çek
-        const proxyUrl = 'http://localhost:3001/api/horoscope';
+        const proxyUrl = `${API_BASE_URL}/api/horoscope`;
         
         // Günün burçlarını belirle (deterministik olsun diye bugünün tarihinden seed oluşturuyoruz)
         const today = new Date();
@@ -186,7 +189,7 @@ const DailyHoroscope = () => {
     };
 
     loadHoroscopes();
-  }, []);
+  }, [getTodayHoroscopeData, saveTodayHoroscopeData, API_BASE_URL]);
 
   const zodiacIcons = {
     Aries: '♈', Taurus: '♉', Gemini: '♊', Cancer: '♋',

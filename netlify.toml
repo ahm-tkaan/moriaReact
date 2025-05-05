@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "./netlify/functions"
+
+[context.production.environment]
+  REACT_APP_API_URL = "/.netlify/functions/api"
+  
+[context.deploy-preview.environment]
+  REACT_APP_API_URL = "/.netlify/functions/api"
+
+[context.development.environment]
+  REACT_APP_API_URL = "http://localhost:8888/.netlify/functions/api"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

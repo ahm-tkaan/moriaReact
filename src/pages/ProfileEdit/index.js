@@ -5,7 +5,7 @@ import { userService } from '../../auth/services/userService';
 import styles from './index.module.css';
 
 const ProfileEdit = () => {
-  const { currentUser, userProfile, updateUserProfile, refreshUserProfile } = useAuth();
+  const { currentUser, userProfile, refreshUserProfile } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
