@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "npm run postinstall"
+    "postinstall": "echo 'Postinstall script çalıştı.'"
   },
   "eslintConfig": {
     "extends": [
