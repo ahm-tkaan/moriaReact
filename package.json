@@ -27,8 +27,7 @@
     "dev": "netlify dev",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "npm run postinstall"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
